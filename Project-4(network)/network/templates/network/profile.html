@@ -1,0 +1,25 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+    <div style="margin: 10px;">
+        <h4>{{userData.username}}</h4>
+        <div>Followers: {{userData.followers.all|length}}</div>
+        <div>Following: {{userData.following.all|length}}</div>
+        {% if userData != request.user and user.is_authenticated %}
+            <form method="post">
+                {% csrf_token %}
+                {% if is_following %}
+                <button type="submit">Unfollow</button>
+                {% else %}
+                <button type="submit">Follow</button>
+                {% endif %}
+            </form>
+            
+        {% endif %}
+        {% for user in postData %}
+            <div class="card" style="margin: 10px 10px 10px 0; padding: 0;">
+                <div>{{user.post}}</div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

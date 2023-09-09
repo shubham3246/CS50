@@ -1,0 +1,14 @@
+{% extends "encyclopedia/layout.html" %}
+{% if content %}
+{% block title %}
+{{entries}}
+{% endblock %}
+{% endif %}
+{% block body %}
+{% if content %}
+<div style="word-wrap: break-word; margin: 0; padding: 0;">{{content|safe}}</div>
+<a href="{% url 'edit' entries %}">Edit</a>
+{% else %}
+<div>No content found!!!</div>
+{% endif %}
+{% endblock %}

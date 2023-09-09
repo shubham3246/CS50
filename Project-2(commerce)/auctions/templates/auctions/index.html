@@ -1,0 +1,23 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    {% if user.is_authenticated %}
+        {% for list in content %}
+            {% if list.isActive %}
+            <div class="card" style="margin: 10px 0px; box-sizing: border-box; padding: 25px 74px">
+                <div class="card-inner" style="display: flex; justify-content: space-between;">
+                    <div style="max-width: 70%; display: flex;flex-direction: column;justify-content: space-between;">
+                        <h2 class="title">{{list.title}}</h2>
+                        <p>{{list.desc | truncatechars:99 | safe}}</p>
+                        <div style="height: 37px;"></div>
+                        <!-- <p>{{list.category}}</p> -->
+                        <h3>${{list.starting_bid}}</h3>
+                        <a href="{% url 'listing' list.id %}">View Details</a>         
+                    </div>
+                    <img src="{{list.img_url}}" style="max-width: 300px; max-height: 400px; "/>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endblock %}

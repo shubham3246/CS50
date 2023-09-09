@@ -1,0 +1,33 @@
+
+
+.postbutton {
+    background-color: rgb(48, 122, 251); 
+    color: azure; 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 10px; 
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.like-button {
+    color: grey; 
+    font-size: 23px; 
+    height: 23px; 
+    margin: 5px 10px; 
+    display: flex; 
+    align-items: center; 
+    background: none; 
+    border: none;
+}
+
+.like-button:focus {
+    border: none;
+    outline: none;
+}
+.pagination {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}

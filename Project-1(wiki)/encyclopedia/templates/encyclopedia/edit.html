@@ -1,0 +1,28 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {% if heading %}
+    {{heading}}
+    {% else %}
+    Not found
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    {% if data == None %}
+    {% for message in messages %}
+    {{message}}
+    {% endfor %}
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        {% if data %}
+        <input name="heading" value="{{heading}}"></input>
+        <pre><textarea name="edit_data" placeholder="Enter the content of page.">{{data}}</textarea></pre>
+        {% else %}
+        <input name="heading"></input>
+        <pre><textarea name="new_data" style="height: 600px;"></textarea></pre>
+        {% endif %}
+        <button type="submit" style="background-color: aqua; width: 100px; text-align: center;">Save</button>
+    </form>
+{% endblock %}

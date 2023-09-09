@@ -1,0 +1,92 @@
+body{
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+.root{
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+.header-logo{
+    position: relative;
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    margin: 0 30px;
+    font-size: 25px;
+    font-weight: 400;
+}
+.header-heading{
+    position: relative;
+    position: relative;
+    margin: 40px 60px;
+    font-family: sans-serif;
+    font-size: 23px;
+    letter-spacing: 0cap;
+    font-weight: 500;
+    color: #d93025;
+}
+.main-body{
+    position: relative;
+    margin: 20px 30px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+}
+.body-heading{
+    position: relative;
+    font-family: sans-serif;
+    font-size: 21px;
+    line-height: 35px;
+    font-weight: 300;
+}
+.main-body>form{
+    position: relative;
+    display: flex;
+    font-family: sans-serif;
+    font-size: 15px;
+    line-height: 30px;
+    flex-direction: column;
+}
+.body-form label{
+    position: relative;
+    margin: 0;
+    width: 200px;
+    height: 20px;
+}
+.body-form input{
+    width: 600px;
+    height: 25px;
+    border: 1px solid #d9d9d9;
+    outline: none;
+    border-radius: 2px;
+}
+.body-form input:focus{
+    border: 1px solid #3079ed;
+}
+.body-form input[type='submit']{
+    background-color: #4d90fe;
+    width: 165px;
+    height: 33px;
+    font-weight: 600;
+    font-size: 15px;
+    color: white;
+    
+    border: 1px solid #3079ed;
+}
+.body-form input[type='submit']:hover{
+    background-color: #2173f8;
+}
+.body-form div{
+    position: relative;
+    display: flex;
+    margin: 10px 0px;
+}
+.submit-btn{
+    position: relative;
+    justify-content: end; 
+    right: 20px;
+    
+}

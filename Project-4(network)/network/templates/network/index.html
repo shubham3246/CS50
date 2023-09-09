@@ -1,0 +1,48 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+    {% for post in posts %}
+    <div class="card" style="margin: 5px; box-sizing: border-box; padding: 10px 30px;">
+        <div class="cardInner" style="display: flex; flex-direction: column;">
+            <div style="display: flex; justify-content: space-between;">
+                <a href="{% url 'profile' post.user %}">{{post.user}}</a>
+                <div>{{post.time}}</div>
+            </div>
+
+            <div id="post-content-{{ post.id }}">{{post.post}}</div>
+            <textarea id="post-content-textarea-{{ post.id }}" style="display: none; margin: 5px;"></textarea>
+            <div style="display: flex; align-items: center;">
+                <div id="post-content-like-count-{{ post.id }}">{{post.likes.count}}</div>
+                {% if request.user in post.likes.all %}
+                    <button class="like-button" id="post-content-like-button-{{ post.id }}" data-post-id="{{ post.id }}"  style="color: red;">&hearts;</button>
+                {% else %}
+                    <button class="like-button" id="post-content-like-button-{{ post.id }}" data-post-id="{{ post.id }}"  style="color: grey;" >&hearts;</button>
+                {% endif %}
+
+                {% if post.user == request.user %}
+                    <button class="edit-button" id="post-content-edit-button-{{ post.id }}" data-post-id="{{ post.id }}">Edit</button>
+                    <button class="save-button" id="post-content-save-button-{{ post.id }}" data-post-id="{{ post.id }}" style="display: none;">Save</button>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+        <!-- Pagination links -->
+        {% if user.is_authenticated %}
+        <div class="pagination" >
+            <span class="step-links">
+                {% if posts.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ posts.previous_page_number }}">previous</a>
+                {% endif %}
+        
+                <span class="current-page">{{ posts.number }}</span>
+        
+                {% if posts.has_next %}
+                    <a href="?page={{ posts.next_page_number }}">next</a>
+                    <a href="?page={{ posts.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+        {% endif %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+{% if user.is_authenticated %}
+<form method="post">
+    {% csrf_token %}
+    <div style="margin: 20px 0 0 30px; display: flex; align-items: center; flex-direction: column;">
+        <div><textarea name="newPost" style="height: 500px; width: 700px; "></textarea></div>
+        <div><button type="submit" class="postbutton">POST</button></div>
+    </div>
+</form>
+{% endif %}
+{% endblock %}

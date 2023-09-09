@@ -1,0 +1,52 @@
+textarea {
+    min-height: 400px;
+}
+
+.card {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+    
+   background-color: grey;
+   box-sizing: border-box;
+   padding: 10px;
+
+   margin: 8px 0;
+}
+.left, .right {
+    display: flex;
+    flex-direction: column;
+}
+
+.senderDiv {
+    font-size: 20px;
+    font-weight: 500;
+}
+.subjectDiv {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.readbtn {
+    width: 100px;
+}
+
+.card .right {
+    justify-content: space-between;
+}
+
+/*read-view*/
+#read-view {
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 4px;
+}
+.email-view_subject{
+    word-wrap: break-word;
+    margin-bottom: 25px;
+}
+.read-midDiv{
+    display: flex;
+    justify-content: space-between;
+}
